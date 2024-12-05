@@ -41,7 +41,7 @@ export default function App() {
     async function fetchMovie() {
       setIsLoading(true)
       try {
-        const res = await fetch(`http://www.omdbapi.com/?s=${query}&apikey=${API_KEY}`)
+        const res = await fetch(`https://www.omdbapi.com/?s=${query}&apikey=${API_KEY}`)
         if (!res.ok) throw new Error("Something Went Wrong!")
 
         const data = await res.json()
@@ -49,7 +49,6 @@ export default function App() {
 
         setMovies(data.Search)
         setError("")
-        // setIsLoading(false)
 
       } catch (error) {
         setError(error.message)
@@ -66,6 +65,8 @@ export default function App() {
 
     fetchMovie()
   }, [query])
+
+
 
   return (
     <>
